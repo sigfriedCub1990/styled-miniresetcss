@@ -1,0 +1,33 @@
+{
+  "name": "styled-minireset.css",
+  "version": "1.0.0",
+  "description": "Jeremy Thomas's minireset.css for styled-components.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigfriedCub1990/styled-miniresetcss.git"
+  },
+  "keywords": [
+    "styled-components",
+    "reset",
+    "minireset.css",
+    "bulma-minireset"
+  ],
+  "author": "sigfried",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sigfriedCub1990/styled-miniresetcss/issues"
+  },
+  "homepage": "https://github.com/sigfriedCub1990/styled-miniresetcss#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "styled-components": "^4.4.0"
+  }
+}
