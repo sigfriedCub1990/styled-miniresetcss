@@ -1,6 +1,6 @@
 {
   "name": "styled-minireset.css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jeremy Thomas's minireset.css for styled-components.",
   "main": "dist/index.js",
   "scripts": {
