@@ -29,11 +29,17 @@ jobs:
       - run: yarn build
 
   publish:
-    - run:
-        name: Publish to NPM
-        command: |
-          npm set //registry.npmjs.org:_authToken=$NPM_TOKEN
-          npm publish
+    docker:
+      - image: circleci/node:10.12
+
+    working_directory: ~/styled-miniresetcss
+    steps:
+      - checkout
+      - run:
+          name: Publish to NPM
+          command: |
+            npm set //registry.npmjs.org:_authToken=$NPM_TOKEN
+            npm publish
 
 workflows:
   version: 2
