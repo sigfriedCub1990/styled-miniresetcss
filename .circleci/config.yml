@@ -28,13 +28,6 @@ jobs:
 
       - run: yarn build
 
-  publish:
-    docker:
-      - image: circleci/node:10.12
-
-    working_directory: ~/styled-miniresetcss
-
-    steps:
       - run:
           name: Publish to NPM
           command: |
@@ -46,6 +39,3 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - publish:
-          requires:
-            - build
