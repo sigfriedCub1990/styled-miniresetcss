@@ -35,11 +35,9 @@ jobs:
     working_directory: ~/styled-miniresetcss
 
     steps:
-      - checkout
       - run:
           name: Publish to NPM
           command: |
-            npm adduser sigfriedcub1990
             npm set //registry.npmjs.org:_authToken=$NPM_TOKEN
             npm publish
 
