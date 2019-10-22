@@ -2,14 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:10.12
-    working_directory: ~/repo
+
+    working_directory: ~/styled-miniresetcss
 
     steps:
       - checkout
 
-      # Download and cache dependencies
+      - run:
+          name: install-yarn-and-upgrade-npm
+          command: "sudo npm install -g yarn@latest npm@latest"
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -23,19 +26,19 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      - run: yarn test
+      - run: yarn build
+
   publish:
     - run:
         name: Publish to NPM
         command: |
-                npm set //registry.npmjs.org:_authToken=$NPM_TOKEN
-                npm publish
+          npm set //registry.npmjs.org:_authToken=$NPM_TOKEN
+          npm publish
+
 workflows:
   version: 2
-  tagged-build:
-    jobs:
-      - build
-      - publish:
-            requires:
-                  - build
+  jobs:
+    - build
+    - publish:
+        requires:
+          - build
