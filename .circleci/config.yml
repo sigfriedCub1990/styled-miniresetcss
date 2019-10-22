@@ -37,8 +37,9 @@ jobs:
 
 workflows:
   version: 2
-  jobs:
-    - build
-    - publish:
-        requires:
-          - build
+  build-deploy:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
